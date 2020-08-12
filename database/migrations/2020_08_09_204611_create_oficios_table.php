@@ -16,6 +16,8 @@ class CreateOficiosTable extends Migration
         Schema::create('oficios', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table->string('nombre', 100);
         });
     }
 

@@ -16,6 +16,13 @@ class CreateEmpresaOficiosTable extends Migration
         Schema::create('empresa__oficios', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            // foreing keys
+            $table->unsignedBigInteger('idEmpresa');
+            $table->unsignedBigInteger('idOficio');
+
+            $table->foreign('idEmpresa')->references('id')->on('empresas');
+            $table->foreign('idOficio')->references('id')->on('oficios');
         });
     }
 

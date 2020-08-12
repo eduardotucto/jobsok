@@ -16,6 +16,12 @@ class CreateUsuarioOficiosTable extends Migration
         Schema::create('usuario__oficios', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table->unsignedBigInteger('idUsuaro');
+            $table->unsignedBigInteger('idOficio');
+
+            $table->foreign('idUsuaro')->references('id')->on('usuarios');
+            $table->foreign('idOficio')->references('id')->on('oficios');
         });
     }
 

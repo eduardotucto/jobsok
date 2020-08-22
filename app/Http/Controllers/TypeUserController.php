@@ -14,7 +14,7 @@ class TypeUserController extends Controller
      */
     public function index()
     {
-        //
+        return TypeUser::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class TypeUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $type_User = TypeUser::create($request->all());
+        return $type_User;
     }
 
     /**
@@ -46,7 +47,7 @@ class TypeUserController extends Controller
      */
     public function show(Type_User $type_User)
     {
-        //
+        return $type_User;
     }
 
     /**
@@ -69,7 +70,8 @@ class TypeUserController extends Controller
      */
     public function update(Request $request, Type_User $type_User)
     {
-        //
+        $type_User->update($request->all());
+        return $type_User;
     }
 
     /**
@@ -80,6 +82,7 @@ class TypeUserController extends Controller
      */
     public function destroy(Type_User $type_User)
     {
-        //
+        $type_User->delete();
+        return $type_User;
     }
 }

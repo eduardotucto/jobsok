@@ -14,7 +14,7 @@ class UsuarioOficioController extends Controller
      */
     public function index()
     {
-        //
+        return Usuario_Oficio::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class UsuarioOficioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario_Oficio = Usuario_Oficio::create($request->all());
+        return $usuario_Oficio;
     }
 
     /**
@@ -46,7 +47,7 @@ class UsuarioOficioController extends Controller
      */
     public function show(Usuario_Oficio $usuario_Oficio)
     {
-        //
+        return $usuario_Oficio
     }
 
     /**
@@ -69,7 +70,8 @@ class UsuarioOficioController extends Controller
      */
     public function update(Request $request, Usuario_Oficio $usuario_Oficio)
     {
-        //
+        $usuario_Oficio->update($request->all());
+        return $usuario_Oficio;
     }
 
     /**
@@ -80,6 +82,7 @@ class UsuarioOficioController extends Controller
      */
     public function destroy(Usuario_Oficio $usuario_Oficio)
     {
-        //
+        $usuario_Oficio->delete();
+        return $usuario_Oficio;
     }
 }

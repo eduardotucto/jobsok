@@ -14,7 +14,7 @@ class TrabajoController extends Controller
      */
     public function index()
     {
-        //
+        return Trabajo::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class TrabajoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $trabajo = Trabajo::create($request->all());
+        return $trabajo;
     }
 
     /**
@@ -46,7 +47,7 @@ class TrabajoController extends Controller
      */
     public function show(Trabajo $trabajo)
     {
-        //
+        return $trabajo;
     }
 
     /**
@@ -69,7 +70,8 @@ class TrabajoController extends Controller
      */
     public function update(Request $request, Trabajo $trabajo)
     {
-        //
+        $trabajo->update($request->all());
+        return $trabajo;
     }
 
     /**
@@ -80,6 +82,7 @@ class TrabajoController extends Controller
      */
     public function destroy(Trabajo $trabajo)
     {
-        //
+        $trabajo->delete();
+        return $trabajo;
     }
 }

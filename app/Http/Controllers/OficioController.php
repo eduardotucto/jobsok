@@ -14,7 +14,7 @@ class OficioController extends Controller
      */
     public function index()
     {
-        //
+        return Oficio::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class OficioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $oficio = Oficio::create($request->all());
+        return $oficio;
     }
 
     /**
@@ -46,7 +47,7 @@ class OficioController extends Controller
      */
     public function show(Oficio $oficio)
     {
-        //
+        return $oficio;
     }
 
     /**
@@ -69,7 +70,8 @@ class OficioController extends Controller
      */
     public function update(Request $request, Oficio $oficio)
     {
-        //
+        $oficio->update($request->all());
+        return $oficio;
     }
 
     /**
@@ -80,6 +82,7 @@ class OficioController extends Controller
      */
     public function destroy(Oficio $oficio)
     {
-        //
+        $oficio->delete();
+        return $oficio;
     }
 }

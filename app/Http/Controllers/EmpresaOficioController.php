@@ -14,7 +14,7 @@ class EmpresaOficioController extends Controller
      */
     public function index()
     {
-        //
+        return EmpresaOficio::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class EmpresaOficioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empresa_Oficio = EmpresaOficio::create($request->all());
+        return $empresa_Oficio;
     }
 
     /**
@@ -46,7 +47,7 @@ class EmpresaOficioController extends Controller
      */
     public function show(Empresa_Oficio $empresa_Oficio)
     {
-        //
+        return $empresa_Oficio;
     }
 
     /**
@@ -69,7 +70,8 @@ class EmpresaOficioController extends Controller
      */
     public function update(Request $request, Empresa_Oficio $empresa_Oficio)
     {
-        //
+        $empresa_Oficio->update($request->all());
+        return $empresa_Oficio;
     }
 
     /**
@@ -80,6 +82,7 @@ class EmpresaOficioController extends Controller
      */
     public function destroy(Empresa_Oficio $empresa_Oficio)
     {
-        //
+        $empresa_Oficio->delete();
+        return $empresa_Oficio;
     }
 }

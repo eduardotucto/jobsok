@@ -14,7 +14,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        //
+        return Empresa::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empresa = Empresa::create($request->all());
+        return $empresa;
     }
 
     /**
@@ -46,7 +47,7 @@ class EmpresaController extends Controller
      */
     public function show(Empresa $empresa)
     {
-        //
+        return $empresa;
     }
 
     /**
@@ -69,7 +70,8 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
-        //
+        $empresa->update($request->all());
+        return $empresa;
     }
 
     /**
@@ -80,6 +82,7 @@ class EmpresaController extends Controller
      */
     public function destroy(Empresa $empresa)
     {
-        //
+        $empresa->delete();
+        return $empresa;
     }
 }

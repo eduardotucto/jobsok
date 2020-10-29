@@ -47,7 +47,7 @@ class UsuarioOficioController extends Controller
      */
     public function show(Usuario_Oficio $usuario_Oficio)
     {
-        return $usuario_Oficio
+        return $usuario_Oficio;
     }
 
     /**

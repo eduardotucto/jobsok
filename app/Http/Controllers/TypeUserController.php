@@ -14,7 +14,7 @@ class TypeUserController extends Controller
      */
     public function index()
     {
-        return TypeUser::all();
+        return Type_User::all();
     }
 
     /**
@@ -35,7 +35,7 @@ class TypeUserController extends Controller
      */
     public function store(Request $request)
     {
-        $type_User = TypeUser::create($request->all());
+        $type_User = Type_User::create($request->all());
         return $type_User;
     }
 

@@ -14,7 +14,7 @@ class EmpresaOficioController extends Controller
      */
     public function index()
     {
-        return EmpresaOficio::all();
+        return Empresa_Oficio::all();
     }
 
     /**
@@ -35,7 +35,7 @@ class EmpresaOficioController extends Controller
      */
     public function store(Request $request)
     {
-        $empresa_Oficio = EmpresaOficio::create($request->all());
+        $empresa_Oficio = Empresa_Oficio::create($request->all());
         return $empresa_Oficio;
     }
 

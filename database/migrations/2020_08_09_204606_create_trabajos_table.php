@@ -19,17 +19,17 @@ class CreateTrabajosTable extends Migration
 
             $table->string('descripcion', 255);
             $table->string('estado', 100);
-            $table->string('tiempo_inicial', 100); // 1 dia/mes
-            $table->string('tiempo_final', 100);
-            $table->double('precio_inicial', 8, 2);
-            $table->double('precio_final', 8, 2);
-            $table->integer('confiabilidad');
-            $table->integer('cortesía');            
-            $table->integer('orden');
-            $table->integer('Mano_de_obra');
-            $table->integer('Precision_cotizacion');
-            $table->unsignedBigInteger('idUser_Cli');
-            $table->unsignedBigInteger('idUser_Tecnico');
+            $table->string('tiempo_inicial', 100)->nullable(); // 1 dia/mes
+            $table->string('tiempo_final', 100)->nullable();
+            $table->double('precio_inicial', 8, 2)->nullable();
+            $table->double('precio_final', 8, 2)->nullable();
+            $table->integer('confiabilidad')->nullable();
+            $table->integer('cortesía')->nullable();
+            $table->integer('orden')->nullable();
+            $table->integer('Mano_de_obra')->nullable();
+            $table->integer('Precision_cotizacion')->nullable();
+            $table->unsignedBigInteger('idUser_Cli')->nullable();
+            $table->unsignedBigInteger('idUser_Tecnico')->nullable();
 
             $table->foreign('idUser_Cli')->references('id')->on('usuarios');
             $table->foreign('idUser_Tecnico')->references('id')->on('usuarios');

@@ -24,9 +24,9 @@ class CreateUsuariosTable extends Migration
             $table->string('correo', 100);
             $table->string('password');
             $table->unsignedBigInteger('idType_User');
-            $table->unsignedBigInteger('idEmpresa');
-            $table->bigInteger('nro_trabajos');
-            $table->string('experiencia', 100);
+            $table->unsignedBigInteger('idEmpresa')->nullable();
+            $table->bigInteger('nro_trabajos')->nullable();
+            $table->string('experiencia', 100)->nullable();
 
             $table->foreign('idType_User')->references('id')->on('type__users');
             $table->foreign('idEmpresa')->references('id')->on('empresas');

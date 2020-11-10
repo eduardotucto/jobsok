@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Usuario;
+use App\Type_User;
+use App\Empresa;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Http\Controllers\mysql_fetch_array;
 
 class UsuarioController extends Controller
 {
@@ -47,7 +52,31 @@ class UsuarioController extends Controller
      */
     public function show(Usuario $usuario)
     {
-        return $usuario;
+        // lo que hace es buscar un tipo de usuario por la llave foranea que tiene usuario(idType_User)
+        $tipoUsuario = Type_User::findOrFail($usuario->idType_User);
+        $empresa = Empresa::find($usuario->idEmpresa);
+        $oficioUser = DB::table('usuario__oficios')->where('idUsuaro',$usuario->id)->get();
+
+        if( sizeof($oficioUser) == 0 ){
+            $oficioUser = null;
+            $re2 = null;
+        } else {
+            foreach ($oficioUser as $ofU) {
+                $re = $ofU->idOficio;
+                $re1 = DB::table('oficios')->where('id',$re)->get();
+                $re2[] = $re1;
+            }
+            $groupConcat = implode(" OR ", $re2);
+        }
+
+        return response()->json([
+            "usuario" => $usuario,
+            "tipousuario" => $tipoUsuario,
+            "empresa" => $empresa,
+            "oficioUser" => $oficioUser,
+            "oficio" => $re2,
+            "status" => Response::HTTP_OK, // 200
+        ],Response::HTTP_OK);
     }
 
     /**

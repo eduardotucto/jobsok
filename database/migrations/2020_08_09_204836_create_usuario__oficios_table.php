@@ -17,10 +17,10 @@ class CreateUsuarioOficiosTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->unsignedBigInteger('idUsuaro');
+            $table->unsignedBigInteger('idUser');
             $table->unsignedBigInteger('idOficio');
 
-            $table->foreign('idUsuaro')->references('id')->on('usuarios');
+            $table->foreign('idUser')->references('id')->on('users');
             $table->foreign('idOficio')->references('id')->on('oficios');
         });
     }

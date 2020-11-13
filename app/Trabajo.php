@@ -25,11 +25,11 @@ class Trabajo extends Model
 
     public function user_cli()
     {
-        return $this->belongsTo('App\Usuario', 'idUser_Cli');
+        return $this->belongsTo('App\User', 'idUser_Cli');
     }
 
     public function user_tecnico()
     {
-        return $this->belongsTo('App\Usuario', 'idUser_Tecnico');
+        return $this->belongsTo('App\User', 'idUser_Tecnico');
     }
 }

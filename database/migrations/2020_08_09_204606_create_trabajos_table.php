@@ -31,8 +31,8 @@ class CreateTrabajosTable extends Migration
             $table->unsignedBigInteger('idUser_Cli')->nullable();
             $table->unsignedBigInteger('idUser_Tecnico')->nullable();
 
-            $table->foreign('idUser_Cli')->references('id')->on('usuarios');
-            $table->foreign('idUser_Tecnico')->references('id')->on('usuarios');
+            $table->foreign('idUser_Cli')->references('id')->on('users');
+            $table->foreign('idUser_Tecnico')->references('id')->on('users');
         });
     }
 

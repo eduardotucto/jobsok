@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use DB;
-use App\Usuario;
+use App\User;
 use App\Type_User;
 use App\Empresa;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\mysql_fetch_array;
 
-class UsuarioController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return Usuario::all();
+        return User::all();
     }
 
     /**
@@ -40,22 +40,22 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario = Usuario::create($request->all());
+        $usuario = User::create($request->all());
         return $usuario;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Usuario  $usuario
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuario $usuario)
+    public function show(User $user)
     {
-        // lo que hace es buscar un tipo de usuario por la llave foranea que tiene usuario(idType_User)
-        $tipoUsuario = Type_User::findOrFail($usuario->idType_User);
-        $empresa = Empresa::find($usuario->idEmpresa);
-        $oficioUser = DB::table('usuario__oficios')->where('idUsuaro',$usuario->id)->get();
+        // lo que hace es buscar un tipo de user por la llave foranea que tiene user(idType_User)
+        $tipoUser = Type_User::findOrFail($user->idType_User);
+        $empresa = Empresa::find($user->idEmpresa);
+        $oficioUser = DB::table('user__oficios')->where('idUser',$user->id)->get();
 
         if( sizeof($oficioUser) == 0 ){
             $oficioUser = null;
@@ -70,8 +70,8 @@ class UsuarioController extends Controller
         }
 
         return response()->json([
-            "usuario" => $usuario,
-            "tipousuario" => $tipoUsuario,
+            "user" => $user,
+            "tipouser" => $tipoUser,
             "empresa" => $empresa,
             "oficioUser" => $oficioUser,
             "oficio" => $re2,
@@ -82,10 +82,10 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Usuario  $usuario
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usuario $usuario)
+    public function edit(User $user)
     {
         //
     }
@@ -94,24 +94,24 @@ class UsuarioController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Usuario  $usuario
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, User $user)
     {
-        $usuario->update($request->all());
-        return $usuario;
+        $user->update($request->all());
+        return $user;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Usuario  $usuario
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(User $user)
     {
-        $usuario->delete();
-        return $usuario;
+        $user->delete();
+        return $user;
     }
 }

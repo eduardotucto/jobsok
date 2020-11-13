@@ -16,8 +16,27 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        "name",
+        "apellido",
+        "ciudad",
+        "telefono",
+        "email",
+        "password",
+        "idType_User",
+        "idEmpresa",
+        "nro_trabajos",
+        "experiencia"
     ];
+
+    public function typeUser()
+    {
+        return $this->belongsTo('App/Type_User', 'idType_User');
+    }
+
+    public function empresa()
+    {
+        return $this->belongsTo('App\Empresa', 'idEmpresa');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

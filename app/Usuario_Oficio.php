@@ -14,7 +14,7 @@ class Usuario_Oficio extends Model
 
     public function usuario()
     {
-        return $this->belongsTo('App\Usuario', 'idUsuaro');
+        return $this->belongsTo('App\User', 'idUsuaro');
     }
 
     public function oficio()

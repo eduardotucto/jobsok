@@ -14,7 +14,34 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{-- boton1 --}}
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <a href="{{ route('oficios') }}">Deseo solicitar servicio</a>
+                        </div>
+                    </div>
+                    
+                    {{-- boton2 --}}
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <a href="{{ route('index') }}">Ver progreso de trabajos</a>
+                        </div>
+                    </div>
+
+                    {{-- boton3 --}}
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <a href="{{ route('index') }}">Deseo ser parte de Jobsok</a>
+                        </div>
+                    </div>
+
+                    {{-- boton4 --}}
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <a href="{{ route('index') }}">Ya soy parte de Jobsok</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

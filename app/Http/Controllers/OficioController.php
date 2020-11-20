@@ -7,14 +7,18 @@ use Illuminate\Http\Request;
 
 class OficioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
-        return Oficio::all();
+        $oficios = Oficio::all();
+
+        return view('clientes.servicios',[
+            'oficios' => $oficios
+        ]);
     }
 
     /**

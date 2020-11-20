@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->unsignedBigInteger('idType_User')->default(1);
+            $table->text('informacion')->nullable()->default('null');
             $table->unsignedBigInteger('idEmpresa')->nullable();
             $table->bigInteger('nro_trabajos')->nullable();
             $table->string('experiencia', 100)->nullable();

@@ -19,7 +19,7 @@
                     <ul>
                         @foreach ($oficios as $ofi)
                             <li>
-                                <a href="{{ route('oficio', $ofi) }}" id="">{{ $ofi['nombre'] }}</a>
+                                <a href="{{ route('oficios.show', $ofi) }}" id="">{{ $ofi['nombre'] }}</a>
                             </li>
                         @endforeach
                     </ul>

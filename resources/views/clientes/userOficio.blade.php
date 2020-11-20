@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header">
                     <p style="font-size: 25px">Lista de trabajores para este servicio</p>
-                    <small>{{ auth()->user()->ciudad }}/{{ $usersOficios->first()->nombre }}</small>
+                    <small style="">{{ ucwords(auth()->user()->ciudad) }} / {{ $usersOficios->first()->nombre }}</small>
                 </div>
 
                 <div class="card-body">
@@ -23,7 +23,7 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-12">
-                            <a href="{{ route('home') }}">
+                            <a href="{{ route('user.show', $usOf->id) }}">
                                 <button class="btn btn-info" style="text-align: left">
                                     <h3>{{ $usOf->name }}</h3><br>
                                     {{ $usOf->nro_trabajos }} trabajos hechos a lo largo de su carrera. <br>

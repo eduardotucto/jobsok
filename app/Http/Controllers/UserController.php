@@ -51,6 +51,7 @@ class UserController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'idType_User'=> $data['idType_User'],
+            'informacion' => $data['informacion'],
             'idEmpresa' => $data['idEmpresa'],
             'nro_trabajos'=> $data['nro_trabajos'],
             'experiencia'=> $data['experiencia'],
@@ -63,33 +64,13 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($user)
     {
-        // lo que hace es buscar un tipo de user por la llave foranea que tiene user(idType_User)
-        $tipoUser = Type_User::findOrFail($user->idType_User);
-        $empresa = Empresa::find($user->idEmpresa);
-        $oficioUser = DB::table('user__oficios')->where('idUser',$user->id)->get();
-
-        if( sizeof($oficioUser) == 0 ){
-            $oficioUser = null;
-            $re2 = null;
-        } else {
-            foreach ($oficioUser as $ofU) {
-                $re = $ofU->idOficio;
-                $re1 = DB::table('oficios')->where('id',$re)->get();
-                $re2[] = $re1;
-            }
-            $groupConcat = implode(" OR ", $re2);
-        }
-
-        return response()->json([
-            "user" => $user,
-            "tipouser" => $tipoUser,
-            "empresa" => $empresa,
-            "oficioUser" => $oficioUser,
-            "oficio" => $re2,
-            "status" => Response::HTTP_OK, // 200
-        ],Response::HTTP_OK);
+        $usuario = User::find($user);
+        // $oficioUser = DB::table('user__oficios')->where('idUser',$user->id)->get();
+        return view('clientes.userinformation',[
+            'userdata' => $usuario
+        ]);
     }
 
     /**

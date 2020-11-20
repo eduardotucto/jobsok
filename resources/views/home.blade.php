@@ -17,7 +17,7 @@
                     {{-- boton1 --}}
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <a href="{{ route('oficios') }}">Deseo solicitar servicio</a>
+                            <a href="{{ route('oficios.index') }}">Deseo solicitar servicio</a>
                         </div>
                     </div>
                     

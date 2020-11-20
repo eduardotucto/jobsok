@@ -23,6 +23,7 @@ class User extends Authenticatable
         "email",
         "password",
         "idType_User",
+        "informacion",
         "idEmpresa",
         "nro_trabajos",
         "experiencia"

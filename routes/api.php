@@ -21,6 +21,6 @@ Route::apiResource('/empresas','EmpresaController');
 Route::apiResource('/oficios','OficioController');
 Route::apiResource('/tipousuario','TypeUserController');
 Route::apiResource('/empresa-oficio','EmpresaOficioController');
-Route::apiResource('/usuarios','UsuarioController');
+Route::apiResource('/usuarios','UserController');
 Route::apiResource('/usuario-oficio','UsuarioOficioController');
 Route::apiResource('/trabajos','TrabajoController');

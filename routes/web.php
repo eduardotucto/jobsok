@@ -21,3 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/oficios','OficioController@index')->name('oficios');
+Route::get('/oficios/{id}','UsuarioOficioController@show')->name('oficio');

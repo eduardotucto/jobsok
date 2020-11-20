@@ -8,13 +8,13 @@ class Usuario_Oficio extends Model
 {
     //
     protected $fillable = [
-        "idUsuaro",
+        "idUser",
         "idOficio"
     ];
 
     public function usuario()
     {
-        return $this->belongsTo('App\User', 'idUsuaro');
+        return $this->belongsTo('App\User', 'idUser');
     }
 
     public function oficio()

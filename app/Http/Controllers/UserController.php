@@ -6,6 +6,7 @@ use DB;
 use App\User;
 use App\Type_User;
 use App\Empresa;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\mysql_fetch_array;
@@ -38,10 +39,22 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $data)
     {
-        $usuario = User::create($request->all());
-        return $usuario;
+        // $usuario = User::create($request->all());
+        // return $usuario;
+        return User::create([
+            'name' => $data['name'],
+            'apellido' => $data['apellido'],
+            'ciudad' => $data['ciudad'],
+            'telefono' => $data['telefono'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'idType_User'=> $data['idType_User'],
+            'idEmpresa' => $data['idEmpresa'],
+            'nro_trabajos'=> $data['nro_trabajos'],
+            'experiencia'=> $data['experiencia'],
+        ]);
     }
 
     /**

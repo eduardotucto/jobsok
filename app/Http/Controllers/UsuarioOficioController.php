@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Usuario_Oficio;
 use Illuminate\Http\Request;
 
 class UsuarioOficioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         return Usuario_Oficio::all();
@@ -45,9 +46,18 @@ class UsuarioOficioController extends Controller
      * @param  \App\Usuario_Oficio  $usuario_Oficio
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuario_Oficio $usuario_Oficio)
+    public function show($userOfId)
     {
-        return $usuario_Oficio;
+        $datosUser = DB::table('users')
+                    ->join('usuario__oficios', 'users.id', '=', 'usuario__oficios.idUser')
+                    ->join('oficios', 'usuario__oficios.idOficio', '=', 'oficios.id')
+                    ->select('users.*','usuario__oficios.idOficio', 'oficios.nombre')
+                    ->where('usuario__oficios.idOficio', '=', $userOfId)
+                    ->get();
+        // return $datosUser;
+        return view('clientes.userOficio',[
+            'usersOficios' => $datosUser
+        ]);
     }
 
     /**

@@ -38,10 +38,15 @@ class TrabajoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        $trabajo = Trabajo::create($request->all());
-        return $trabajo;
+        // $trabajo = Trabajo::create($request->all());
+        // return $trabajo;
+        return Trabajo::create([
+            'descripcion' => request('txtDescripcion'),
+            'idUser_Tecnico'=>request('idTecnico'),
+            'idUser_Cli'=>request('idUser'),
+        ]);
     }
 
     /**

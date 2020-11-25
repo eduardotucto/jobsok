@@ -51,16 +51,19 @@
                         <div class="col-md-8 offset-md-12" style="padding-top: 20px">
                             <div class="card card-body">
 
-                                <form action="POST" action="{{ route('trabajo.store', $userdata) }}">
+                                <form method="POST" action="{{ route('trabajo.store') }}">
+                                @csrf
                                     <h4>Descripción de la necesidad</h4>
                                     <hr>
                                     <i>N° salocitud generado automáticamente: not aviable</i>
                                     {{-- Fecha actual laragon --}}
                                     Fecha: {{ date('d-m-Y') }} <br> 
                                     Estado: Solicitanto <br>
-                                    Descripción:
-                                    <textarea name="txtDescripcion" cols="30" rows="10" maxlength="800"></textarea> <br>
+                                    Descripción: <br>
+                                    <textarea name="txtDescripcion" cols="55" rows="10" maxlength="800"></textarea> <br>
                                     <button type="submit" class="btn btn-primary">Enviar</button>
+                                    <input type="hidden" name="idTecnico" value="{{ $userdata->id }}">
+                                    <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
                                 </form>
 
                             </div>

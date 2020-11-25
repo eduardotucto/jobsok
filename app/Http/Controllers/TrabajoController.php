@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Trabajo;
+use App\User;
 use Illuminate\Http\Request;
 
 class TrabajoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         return Trabajo::all();
@@ -22,9 +23,13 @@ class TrabajoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($idTec)
     {
-        //
+        $userdata = User::find($idTec);
+        // return $currentuser;
+        return view('clientes.solicitud',[
+            'userdata' => $userdata
+        ]);
     }
 
     /**

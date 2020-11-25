@@ -8,7 +8,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <p style="font-size: 25px;text-align:center;">Inforacion de persona</p>            
+                    <p style="font-size: 25px;text-align:center;">Información de persona</p>            
                 </div>
 
                 <div class="card-body">
@@ -23,7 +23,9 @@
                             <div class="card card-body">
                                 <h4>{{ $userdata->name }}</h4><br>
                                 Localizado en {{ ucwords($userdata->ciudad) }} <br>
-                                <a href="{{ route('home', $userdata->id) }}"><button class="btn btn-secondary">Solicitar asistencia</button></a>
+                                <a href="{{ route('trabajo.create', $userdata->id) }}">
+                                    <button class="btn btn-secondary">Solicitar asistencia</button>
+                                </a>
                                 Número telefonico: {{ $userdata->telefono }}
                             </div>
                         </div>

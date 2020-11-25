@@ -18,7 +18,7 @@ class CreateTrabajosTable extends Migration
             $table->timestamps();
 
             $table->string('descripcion', 255);
-            $table->string('estado', 100);
+            $table->string('estado', 25)->default('Esperando');
             $table->string('tiempo_inicial', 100)->nullable(); // 1 dia/mes
             $table->string('tiempo_final', 100)->nullable();
             $table->double('precio_inicial', 8, 2)->nullable();

@@ -40,12 +40,18 @@ class TrabajoController extends Controller
      */
     public function store()
     {
-        // $trabajo = Trabajo::create($request->all());
-        // return $trabajo;
-        return Trabajo::create([
-            'descripcion' => request('txtDescripcion'),
-            'idUser_Tecnico'=>request('idTecnico'),
-            'idUser_Cli'=>request('idUser'),
+        // Guardando los datos
+        // Trabajo::create([
+        //     'descripcion' => request('txtDescripcion'),
+        //     'idUser_Tecnico'=>request('idTecnico'),
+        //     'idUser_Cli'=>request('idUser'),
+        // ]);
+        
+        // para devolver nuevamente datos del tecnico
+        $idTec = request('idTecnico');
+        $userdata = User::find($idTec);
+        return view('clientes.solicitudhecha',[
+            'userdata' => $userdata
         ]);
     }
 

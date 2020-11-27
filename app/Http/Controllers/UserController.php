@@ -6,6 +6,7 @@ use DB;
 use App\User;
 use App\Type_User;
 use App\Empresa;
+use App\Usuario_Oficio;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -79,30 +80,38 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
-        //
+        $datosUser = User::find(auth()->user()->id);
+        return view('tecnicos.bepartJobsok',[
+            'userdata' => $datosUser
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
+    public function update(Request $data)
     {
-        $user->update($request->all());
-        return $user;
+        User::where('id',$data['idUser']) //update where
+            ->update([
+                'idType_User'=> $data['tipoUsuario'],
+                'informacion' => $data['descripcion'],
+                'nro_trabajos'=> $data['nroTrabajos'],
+                'experiencia'=> $data['tExp'],
+            ]);
+
+        $oficio=$data['oficios']; // almaceno el array en una varible
+        /* Recorre array oficio donde key es el valor en cada posicion
+        Este for termina automaticamente cuando no hay más valores en array*/
+        foreach ($oficio as $key){
+            $product_function = new Usuario_Oficio;
+            $product_function->idUser = $data['idUser'];
+            $product_function->idOficio = $key;
+            $product_function->save();
+        }
+
+        return redirect('home');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(User $user)
     {
         $user->delete();

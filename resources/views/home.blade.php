@@ -28,19 +28,21 @@
                         </div>
                     </div>
 
-                    {{-- boton3 --}}
-                    <div class="form-group row mb-0">
-                        <div class="col-md-6 offset-md-4">
-                            <a href="{{ route('index') }}">Deseo ser parte de Jobsok</a>
+                    @if (auth()->user()->idType_User == 1)
+                        {{-- boton3 --}}
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <a href="{{ route('user.edit') }}">Deseo ser parte de Jobsok</a>
+                            </div>
                         </div>
-                    </div>
-
-                    {{-- boton4 --}}
-                    <div class="form-group row mb-0">
-                        <div class="col-md-6 offset-md-4">
-                            <a href="{{ route('index') }}">Ya soy parte de Jobsok</a>
-                        </div>
-                    </div>
+                    @else
+                        {{-- boton4 --}}
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <a href="{{ route('index') }}">Panel de control de técnico</a>
+                            </div>
+                        </div>                        
+                    @endif
 
                 </div>
             </div>

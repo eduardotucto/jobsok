@@ -48,7 +48,7 @@ class UsuarioOficioController extends Controller
      */
     public function show($userOfId)
     {
-        $datosUser = DB::table('users')
+        $datosDeTecnico = DB::table('users')
                     ->join('usuario__oficios', 'users.id', '=', 'usuario__oficios.idUser')
                     ->join('oficios', 'usuario__oficios.idOficio', '=', 'oficios.id')
                     ->select('users.*','usuario__oficios.idOficio', 'oficios.nombre')
@@ -56,7 +56,7 @@ class UsuarioOficioController extends Controller
                     ->get();
         // return $datosUser;
         return view('clientes.userOficio',[
-            'usersOficios' => $datosUser
+            'usersOficios' => $datosDeTecnico
         ]);
     }
 

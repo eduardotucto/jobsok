@@ -41,11 +41,11 @@ class TrabajoController extends Controller
     public function store()
     {
         // Guardando los datos
-        // Trabajo::create([
-        //     'descripcion' => request('txtDescripcion'),
-        //     'idUser_Tecnico'=>request('idTecnico'),
-        //     'idUser_Cli'=>request('idUser'),
-        // ]);
+        Trabajo::create([
+            'descripcion' => request('txtDescripcion'),
+            'idUser_Tecnico'=>request('idTecnico'),
+            'idUser_Cli'=>request('idUser'),
+        ]);
         
         // para devolver nuevamente datos del tecnico
         $idTec = request('idTecnico');

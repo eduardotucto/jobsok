@@ -7,6 +7,7 @@ use App\User;
 use App\Type_User;
 use App\Empresa;
 use App\Usuario_Oficio;
+use App\Trabajo;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -71,6 +72,23 @@ class UserController extends Controller
         // $oficioUser = DB::table('user__oficios')->where('idUser',$user->id)->get();
         return view('clientes.userinformation',[
             'userdata' => $usuario
+        ]);
+    }
+
+    public function show2()
+    {
+        $datosTecnico = auth()->user();
+        if ($datosTecnico['idType_User'] == 1) {
+            return redirect('home')->with('status', 'Primero tienes que ser parte de nosotros para ingresar al panel de tecnico :)');
+        }
+
+        $trabajos = Trabajo::where([
+            'idUser_Tecnico' => $datosTecnico['id']
+        ])->get();
+        
+        return view('tecnicos.panelcontrol', [
+            'datostecnico' => $datosTecnico,
+            'trabajos' => $trabajos,
         ]);
     }
 

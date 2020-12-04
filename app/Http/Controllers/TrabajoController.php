@@ -72,9 +72,17 @@ class TrabajoController extends Controller
      * @param  \App\Trabajo  $trabajo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Trabajo $trabajo)
+    public function edit($id)
     {
-        //
+        $trabajo = Trabajo::find($id);
+        $cliente = User::find($trabajo['idUser_Cli']);
+        $tecnico = User::find($trabajo['idUser_Tecnico']);
+
+        return view('trabajos.panelTrabajos',[
+            'trabajo' => $trabajo,
+            'cliente' => $cliente,
+            'tecnico' => $tecnico
+        ]);
     }
 
     /**
@@ -84,10 +92,12 @@ class TrabajoController extends Controller
      * @param  \App\Trabajo  $trabajo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Trabajo $trabajo)
+    public function update($id, $estado)
     {
-        $trabajo->update($request->all());
-        return $trabajo;
+        return Trabajo::where('id',$id)
+            ->update([
+                'estado' => $estado
+            ]);
     }
 
     /**

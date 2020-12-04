@@ -39,7 +39,7 @@
                         {{-- boton4 --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <a href="{{ route('index') }}">Panel de control de técnico</a>
+                                <a href="{{ route('user.show2') }}">Panel de control de técnico</a>
                             </div>
                         </div>                        
                     @endif

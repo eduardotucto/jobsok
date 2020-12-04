@@ -33,8 +33,8 @@
                             <div class="card card-body">
                                 <h4>Perfil de cliente</h4><hr>
                                 Nombre: {{ ucwords(auth()->user()->name) }} <br>
-                                <i>Fecha de nacimiento: me falta jiji</i>
-                                <i>Genero: me falta jiji</i>
+                                Fecha de nacimiento: {{ auth()->user()->f_nacimiento }} <br>
+                                Genero: {{ auth()->user()->sexo }} <br>
                                 Teléfono: {{ auth()->user()->telefono }}
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                                     Fecha: {{ date('d-m-Y') }} <br> 
                                     Estado: Solicitanto <br>
                                     Descripción: <br>
-                                    <textarea name="txtDescripcion" cols="55" rows="10" maxlength="800"></textarea> <br>
+                                    <textarea name="txtDescripcion" cols="55" rows="10" maxlength="800" required></textarea> <br>
                                     <button type="submit" class="btn btn-primary">Enviar</button>
                                     <input type="hidden" name="idTecnico" value="{{ $userdata->id }}">
                                     <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">

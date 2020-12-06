@@ -24,7 +24,7 @@
                     {{-- boton2 --}}
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <a href="{{ route('index') }}">Ver progreso de trabajos</a>
+                            <a href="{{ route('trabajo.listaSolicitudes') }}">Ver progreso de trabajos solicitados</a>
                         </div>
                     </div>
 

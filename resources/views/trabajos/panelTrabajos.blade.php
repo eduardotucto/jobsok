@@ -80,15 +80,17 @@
                                 </div>
                             </div>
                         @else
-                            @if ($cliente->idType_User = 1)
+                            {{--  --}}
+                            @if ( auth()->user()->idType_User == 1)
                                 <div class="col-md-4 offset-md-12">
                                     <div class="row">
-                                        <a class="col-md-6" href="{{ route('trabajo.update',array($trabajo->id, 'En proceso')) }}">
+                                        <a class="col-md-6" href="{{ route('trabajo.update',array($trabajo->id, 'Terminado')) }}">
                                             <button type="submit" class=" btn btn-primary">Confirmar trabajo terminado</button>
                                         </a>                                
                                     </div>
                                 </div>
                             @endif
+
                         @endif
                     </div>
                     

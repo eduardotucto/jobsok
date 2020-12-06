@@ -111,4 +111,19 @@ class TrabajoController extends Controller
         $trabajo->delete();
         return $trabajo;
     }
+
+    public function listaSolicitudes()
+    {
+        $id = auth()->user()->id;
+        $trabajos = Trabajo::where('idUser_Cli', $id)->get();
+        
+        if (empty($trabajos)) {
+            return redirect('home')->with('status', 'Aún no solicitaste ningun servicio, gracias. :)');
+        } else {
+            return view('trabajos.solicitados',[
+                'trabajos' => $trabajos,
+            ]);
+        }
+        
+    }
 }

@@ -91,7 +91,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-12 offset-md-12">
                                     @if ($trab['estado'] == 'Terminado')
-                                        <a href="{{ route('trabajo.show', $trab->id) }}">
+                                        <a href="{{ route('trabajo.edit', $trab->id) }}">
                                             <button class="btn btn-info" style="text-align: left">
                                                 Fecha: {{ $trab->created_at->format('Y-m-d') }}<br>
                                                 Descripción: {{ $trab->descripcion }}

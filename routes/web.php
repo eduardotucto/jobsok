@@ -34,3 +34,5 @@ Route::get('/tecnico','UserController@show2')->name('user.show2');
 Route::get('/tecnico/trabajo/{id}','TrabajoController@edit')->name('trabajo.edit');
 Route::get('/tecnico/trabajo/acept/{id}/{estado}','TrabajoController@update')->name('trabajo.update');
 Route::get('/lista-solicitudes','TrabajoController@listaSolicitudes')->name('trabajo.listaSolicitudes');
+Route::get('/calificar/{id}','TrabajoController@rateView')->name('trabajo.rateView');
+Route::post('/calificar','TrabajoController@rateSave')->name('trabajo.rateSave');

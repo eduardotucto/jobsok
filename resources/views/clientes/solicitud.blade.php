@@ -55,7 +55,6 @@
                                 @csrf
                                     <h4>Descripción de la necesidad</h4>
                                     <hr>
-                                    <i>N° salocitud generado automáticamente: not aviable</i>
                                     {{-- Fecha actual laragon --}}
                                     Fecha: {{ date('d-m-Y') }} <br> 
                                     Estado: Solicitanto <br>

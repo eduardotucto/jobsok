@@ -31,7 +31,7 @@
                                             <td style="text-align: left"> {{ $trab['descripcion'] }} </td>
                                             <td> {{ $trab['created_at']->format('Y-m-d') }} </td>
                                             <td> {{ $trab['estado'] }} </td>
-                                            <td><a href="#">Ver</a></td>
+                                            <td><a href="{{ route('trabajo.edit', $trab) }}">Ver</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

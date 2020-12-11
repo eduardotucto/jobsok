@@ -94,10 +94,12 @@ class TrabajoController extends Controller
      */
     public function update($id, $estado)
     {
-        return Trabajo::where('id',$id)
-            ->update([
-                'estado' => $estado
-            ]);
+        Trabajo::where('id',$id)
+        ->update([
+            'estado' => $estado
+        ]);
+
+        return redirect('home')->with('status', 'Aceptaste un nuevo trabajo, será comunicado al cliente');
     }
 
     /**
@@ -124,6 +126,45 @@ class TrabajoController extends Controller
                 'trabajos' => $trabajos,
             ]);
         }
+    }
+
+    public function rateView($id)
+    {
+        $trabajo = Trabajo::find($id);
+        return view('trabajos.calificar',[
+            'trabajo' => $trabajo
+        ]);
+        // $trabajo = Trabajo::find($id);
+        // $cliente = User::find($trabajo['idUser_Cli']);
+        // $tecnico = User::find($trabajo['idUser_Tecnico']);
+
+        // return view('trabajos.panelTrabajos',[
+        //     'trabajo' => $trabajo,
+        //     'cliente' => $cliente,
+        //     'tecnico' => $tecnico
+        // ]);
+    }
+
+    public function rateSave()
+    {
         
+        $idTrabajo = request('id');
+        $confiabilidad = request('range1');
+        $cortesia = request('range2');
+        $orden = request('range3');
+        $manoObra = request('range4');
+        $cotizacion = request('range5');
+        $result = request('result');
+
+        Trabajo::where('id',$idTrabajo)
+        ->update([
+            'estado' => 'Terminado',
+            'confiabilidad' => $confiabilidad,
+            'cortesía' => $cortesia,
+            'orden' => $orden,
+            'Mano_de_obra' => $manoObra,
+            'Precision_cotizacion' => $cotizacion
+        ]);
+        return redirect('home')->with('status', 'Gracias por calificar el trabajo que recibiste. :)');
     }
 }

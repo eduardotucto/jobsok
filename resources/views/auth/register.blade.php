@@ -74,6 +74,27 @@
                             </div>
                         </div>
 
+                        {{-- Genero --}}
+                        <div class="form-group row">
+                            <label for="genero" class="col-md-4 col-form-label text-md-right">Genero</label>
+                        
+                            <div class="col-md-6">
+                                <input type="radio" id="male" name="genero" value="Masculino">
+                                <label for="male">Masculino</label><br>
+                                <input type="radio" id="female" name="genero" value="Femenino">
+                                <label for="female">Femenino</label><br>
+                            </div>
+                        </div>
+
+                        {{-- Fecha nacimiento --}}
+                        <div class="form-group row">
+                            <label for="fNacimiento" class="col-md-4 col-form-label text-md-right">Fecha Nacimiento</label>
+                        
+                            <div class="col-md-6">
+                                <input type="date" name="fNacimiento" id="fNacimiento">
+                            </div>
+                        </div>
+
                         {{-- Email --}}
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>

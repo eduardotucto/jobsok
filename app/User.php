@@ -20,6 +20,8 @@ class User extends Authenticatable
         "apellido",
         "ciudad",
         "telefono",
+        "f_nacimiento",
+        "sexo",
         "email",
         "password",
         "idType_User",

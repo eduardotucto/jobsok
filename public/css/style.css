@@ -1,0 +1,11 @@
+#fullheight {
+    background-image: url("../img/fondo_registro.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* background: rgb(81, 81, 124); */
+}

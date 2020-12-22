@@ -2,49 +2,41 @@
 
 @section('content')
 
+<div class="container-fluid" style="padding-top: 4rem">
+    <div class="container pb-4">
+        <div class="row justify-content-center">
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+            {{-- Información basica de tecnico --}}
+            <div class="col-lg-4 col-md-12 mt-4">
+                <div class="card" style="border-radius: 20px;">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>{{ $userdata->name }}</b></h5>
+                        <hr>
+                        <p class="m-0">Localizado en {{ ucwords($userdata->ciudad) }}</p>
+                        <p class="m-0">Numero telefono: {{ $userdata->telefono }}</p><br>
+                        <a href="{{ route('trabajo.create', $userdata->id) }}">
+                            <button class="btn btn-primary btn-block" disabled>Solicitar asistencia</button>
+                            </a>
                     </div>
-                    @endif
-
-                    {{-- Una fila --}}
-                    <div class="form-group row mb-0">
-
-                        {{-- Información basica de tecnico --}}
-                        <div class="col-md-4 offset-md-12">
-                            <div class="card card-body">
-                                <h4>{{ $userdata->name }}</h4><br>
-                                Localizado en {{ ucwords($userdata->ciudad) }} <br>
-                                <button class="btn btn-secondary disabled" disabled>Solicitar asistencia</button>
-                                Número telefonico: {{ $userdata->telefono }}
-                            </div>
-                        </div>
-
-                        {{-- aviso --}}
-                        <div class="col-md-8 offset-md-12">
-                            <div class="card card-body">
-                                <h1 style="text-align: center"> ¡Solicitud enviada! </h1>
-                                <a href="{{ route('home') }}">
-                                    <button class="btn btn-secondary btn-block" style="background-color: #2A6DB6">
-                                        Terminar
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
             </div>
+
+            {{-- aviso --}}
+            <div class="col-lg-6 col-md-12 mt-4">
+                <div class="card" style="border-radius: 20px;">
+                    <div class="card-body">
+                        <h5 class="card-title display-4 text-center"><b>¡Solicitud enviada!</b></h5><hr>
+                        <a href="{{ route('home') }}">
+                            <button class="btn btn-secondary btn-block" style="background-color: #2A6DB6">
+                                Terminar
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
+
 @endsection

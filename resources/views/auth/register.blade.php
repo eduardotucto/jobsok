@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div id="fullheight">
+<div id="fullheight" style="background-image: url('../img/fondo_registro.png')">
     <div class="container" style="padding-top: 6rem">
         <div class="row">
-            <div class="col-6">
+            <div class="col-lg-6 col-md-12">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Registrate ahora</h5><hr>
@@ -15,14 +15,14 @@
 
                             {{-- Nombres y apellidos --}}
                             <div class="form-group row">
-                                <div class="col-6">
+                                <div class="col-lg-6 col-md-12">
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"
                                         placeholder="Nombre" autofocus>
                                     @error('name')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                     @enderror
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6 col-md-12">
                                     <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname"
                                         value="{{ old('lastname') }}" placeholder="Apellidos">
                                     @error('lastname')
@@ -95,7 +95,7 @@
 
                             {{-- boton --}}
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">
+                                <button type="submit" class="btn btn-primary btn-block btn-lg">
                                     Registrar
                                 </button>
                             </div>

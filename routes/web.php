@@ -26,7 +26,7 @@ Route::get('/oficios','OficioController@index')->name('oficios.index');
 Route::get('/oficios/{id}','UsuarioOficioController@show')->name('oficios.show');
 Route::get('/user/{id}','UserController@show')->name('user.show');
 Route::get('/solicitando/{id}','TrabajoController@create')->name('trabajo.create');
-Route::post('/solicitando/done','TrabajoController@store')->name('trabajo.store');
+Route::post('/solicitando','TrabajoController@store')->name('trabajo.store');
 
 Route::get('/bepartofjobsok','UserController@edit')->name('user.edit');
 Route::post('/home','UserController@update')->name('user.update');
